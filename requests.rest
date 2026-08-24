@@ -1,27 +1,26 @@
-### Mostrar todos os filmes cadastrados
-GET http://localhost:3067/all-movies
+GET http://localhost:3067
 
-### Adicionar um novo filme
-POST http://localhost:3067/create-movie
+###
+POST http://localhost:3067/create
 Content-Type: application/json
 
 {
-    "title": "Star Wars: Uma Nova Esperança",
-    "genre": "Ficção Científica",
-    "duration": 121,
-    "age_rating": "10"
+    "title": "Homem-Aranha: Um Novo Dia",
+    "gender": "Ação / Aventura",
+    "duration": 144,
+    "ageRating": 12
 }
 
-### Editar um filme (troque o :1 pelo id do filme que quer editar)
-PUT http://localhost:3067/edit-movie/1
+###
+DELETE http://localhost:3067/delete/12
+
+###
+PUT http://localhost:3067/update/2
 Content-Type: application/json
 
 {
-    "title": "O Poderoso Chefão",
-    "genre": "Drama",
-    "duration": 175,
-    "age_rating": "18"
+    "title": "O Hobbit",
+    "gender": "Comédia Romântica",
+    "duration": 40,
+    "ageRating": 14
 }
-
-### Apagar um filme (troque o :1 pelo id do filme que quer apagar)
-DELETE http://localhost:3067/delete-movie/1

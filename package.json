@@ -1,17 +1,16 @@
 {
-  "name": "gordo2",
+  "name": "correcao-atv1-3b",
   "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "dev":"node --watch server.js"
+    "dev": "node --watch server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "module",
   "dependencies": {
-    "cors": "^2.8.6",
     "express": "^5.2.1",
     "mysql2": "^3.23.3"
   }
