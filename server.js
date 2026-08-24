@@ -91,7 +91,11 @@ const status = document.getElementById('status');
  
 async function carregarFilmes() {
   try {
-    const resposta = await fetch('http://localhost:3067');
+    async function buscarFilmes() {
+        const resposta = await fetch("http://localhost:3067")
+        const resposta = await fetch("https://atividadedosfilmes3bim.vercel.app")
+        const filmes = await resposta.json()
+        const sectionFilmes = document.querySelector(".filmes")
     const filmes = await resposta.json();
     grid.innerHTML = filmes.map(filme => `
       <div class="card">
