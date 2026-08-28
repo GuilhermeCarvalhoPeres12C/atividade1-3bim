@@ -1,10 +1,8 @@
 import express from "express"
 import mysql2 from "mysql2"
-import cors fromt 'cors';
+import cors from 'cors';
 
 const app = express()
-
-// CRUD => Create, Read, Update, Delete
 
 app.use(express.json())
 app.use(cors())
@@ -85,34 +83,3 @@ const sql = mysql2.createPool({
     password: "senhaAlunos",
     database: "alunos_filmes03TB"
 })
-
-const grid = document.getElementById('grid');
-const status = document.getElementById('status');
- 
-async function carregarFilmes() {
-  try {
-    async function buscarFilmes() {
-        const resposta = await fetch("http://localhost:3067")
-        const resposta = await fetch("https://atividadedosfilmes3bim.vercel.app")
-        const filmes = await resposta.json()
-        const sectionFilmes = document.querySelector(".filmes")
-    const filmes = await resposta.json();
-    grid.innerHTML = filmes.map(filme => `
-      <div class="card">
-        <div>
-          <div class="id">#${String(filme.id).padStart(3, '0')}</div>
-          <div class="title">${filme.title}</div>
-          <div class="gender">${filme.gender}</div>
-        </div>
-        <div class="meta">
-          <span>${filme.duration} min</span>
-          <span class="rating">${filme.ageRating === 0 ? 'LIVRE' : filme.ageRating + '+'}</span>
-        </div>
-      </div>
-    `).join('');
-  } catch (erro) {
-    status.textContent = 'Não foi possível carregar os filmes no momento.';
-  }
-}
- 
-carregarFilmes();

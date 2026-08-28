@@ -8,7 +8,7 @@ Content-Type: application/json
     "title": "Homem-Aranha: Um Novo Dia",
     "gender": "Ação / Aventura",
     "duration": 144,
-    "ageRating": 12
+    "ageRating": 12;
 }
 
 ###
