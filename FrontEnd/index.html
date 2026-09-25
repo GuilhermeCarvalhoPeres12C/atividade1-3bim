@@ -1,16 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Frontend Filmes</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Catálogo de Filmes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="syle.css" />
 </head>
 <body>
-    <h1>Lista de Filmes: Guilherme Carvalho e Sophia Leal</h1>
 
-    <section class="filmes"></section>
+  <header class="marquee">
+    <div class="marquee-inner">
+      <p class="eyebrow">Sessão em cartaz</p>
+      <h1>Catálogo de Filmes</h1>
+      <p class="subtitle">Cadastre, edite e remova os filmes da bilheteria.</p>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="layout">
+
+    <section class="ficha" aria-labelledby="ficha-titulo">
+      <h2 id="ficha-titulo"><span id="ficha-modo">Novo ingresso</span></h2>
+
+      <form id="filme-form" novalidate>
+        <input type="hidden" id="filme-id" />
+
+        <label class="campo">
+          <span>Título</span>
+          <input type="text" id="title" placeholder="Ex: Cidade de Deus" required />
+        </label>
+
+        <label class="campo">
+          <span>Gênero</span>
+          <input type="text" id="gender" placeholder="Ex: Drama" required />
+        </label>
+
+        <div class="campo-linha">
+          <label class="campo">
+            <span>Duração (min)</span>
+            <input type="number" id="duration" min="1" placeholder="130" required />
+          </label>
+
+          <label class="campo">
+            <span>Classificação</span>
+            <input type="text" id="ageRating" placeholder="Ex: 14" required />
+          </label>
+        </div>
+
+        <div class="acoes-form">
+          <button type="submit" id="btn-salvar" class="btn btn-principal">Cadastrar filme</button>
+          <button type="button" id="btn-cancelar" class="btn btn-fantasma" hidden>Cancelar edição</button>
+        </div>
+
+        <p id="form-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="sessao" aria-labelledby="lista-titulo">
+      <div class="sessao-topo">
+        <h2 id="lista-titulo">Em cartaz</h2>
+        <button type="button" id="btn-atualizar-lista" class="btn btn-linha">Atualizar lista</button>
+      </div>
+
+      <div id="lista-filmes" class="lista-filmes">
+        <p class="vazio">Carregando filmes...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
